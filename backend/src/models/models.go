@@ -40,7 +40,7 @@ type User struct {
 	Pass string
 }
 
-func GetUserByIDPass(name string, pass string) *User {
+func GetUserByNamePass(name string, pass string) *User {
 	conn := GetConnection()
 	defer func() {
 		if err := conn.Disconnect(context.TODO()); err != nil {

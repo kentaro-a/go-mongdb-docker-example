@@ -1,4 +1,4 @@
-package session
+package sessions
 
 import (
 	"app/models"
@@ -14,7 +14,7 @@ import (
 
 const (
 	CookieName                   string        = "go-tutorial"
-	SessionTimeout               time.Duration = 60
+	SessionTimeout               time.Duration = 60 * 10
 	DeleteExpiredSessionInterval time.Duration = 60 * 60
 )
 
