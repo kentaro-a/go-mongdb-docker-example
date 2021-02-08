@@ -1,0 +1,16 @@
+version: "2"
+
+options:
+    verbose: true
+    cli_mode: 'auto'
+    max_attempt: 3000
+
+syncs:
+    backend-sync:
+        notify_terminal: true
+        src: "./backend"
+        sync_strategy: 'unison'
+        sync_excludes: []
+        sync_userid: '1000'
+        watch_excludes: ['.cache', '.git', 'deploy']
+        max_attempt: 10
