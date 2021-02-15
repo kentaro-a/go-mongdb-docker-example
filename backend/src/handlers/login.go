@@ -29,7 +29,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			view_data.ErrorMessages = append(view_data.ErrorMessages, "Invalid user or password")
 		}
 	}
-
-	t := templates.GetTemplate("/templates/htmls/login.html")
-	t.Execute(w, view_data)
+	data := templates.TemplateData{
+		Title: "login",
+		Data:  view_data,
+	}
+	t := templates.GetLayoutTemplate("login", "/templates/htmls/layout.html", "/templates/htmls/login.html")
+	t.ExecuteTemplate(w, "layout", data)
 }

@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-	    <meta charset="UTF-8">
-		<title>users</title>
-	</head>
-	<body>
-		<div>
-			<h1>HOME</h1><br>
-			<p>Logged in as..</p>
-			<p>User ID: {{.usr_id}}</p>
-			<p>User Name: {{.usr_name}}</p>
-		</div>
-		<div>
-			<a href="/logout">logout</a>
-		</div>
-	</body>
-</html>
+{{define "content"}}
+<div>
+	<h1>HOME</h1><br>
+	<p>Logged in as..</p>
+	<p>User ID: {{.Data.usr_id}}</p>
+	<p>User Name: {{.Data.usr_name}}</p>
+</div>
+<div>
+	<a href="/logout">logout</a>
+</div>
+{{end}}

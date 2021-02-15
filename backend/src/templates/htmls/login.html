@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-	    <meta charset="UTF-8">
-		<title>login</title>
-	</head>
-	<body>
-		<div>
-			<h1>Login</h1><br>
-			<form method="POST" action="/login">
-				<p>User Name: <input type="text" name="name" value="{{.Name}}"></p>
-				<p>Password: <input type="password" name="pass" value="{{.Pass}}"></p>
-				<input type="submit" value="login">
-			</form>
+{{define "content"}}
+<div>
+	<h1>Login</h1><br>
+	<form method="POST" action="/login">
+		<p>User Name: <input type="text" name="name" value="{{.Data.Name}}"></p>
+		<p>Password: <input type="password" name="pass" value="{{.Data.Pass}}"></p>
+		<input type="submit" value="login">
+	</form>
 
-			{{if gt (len .ErrorMessages) 0 }}
-				<div style="background-color:red" >
-					{{range .ErrorMessages}}
-						<p>{{.}}</p>
-					{{end}}
-				</div>
-			{{end}}
-		</div>
-	</body>
-</html>
+	{{if gt (len .Data.ErrorMessages) 0 }}
+	<div style="background-color:red" >
+		{{range .Data.ErrorMessages}}
+		<p>{{.}}</p>
+		{{end}}
+	</div>
+	{{end}}
+</div>
+{{end}}

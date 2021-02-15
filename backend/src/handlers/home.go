@@ -8,6 +8,10 @@ import (
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	sess, _ := r.Context().Value("sess").(*sessions.Session)
-	t := templates.GetTemplate("/templates/htmls/home.html")
-	t.Execute(w, sess.Data)
+	t := templates.GetLayoutTemplate("home", "/templates/htmls/layout.html", "/templates/htmls/home.html")
+	data := templates.TemplateData{
+		Title: "Home",
+		Data:  sess.Data,
+	}
+	t.ExecuteTemplate(w, "layout", data)
 }
